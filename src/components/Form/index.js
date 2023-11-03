@@ -17,14 +17,14 @@ export const Form = ({handleAdd}) => {
             return;
         }
     //Criar uma transação
-    const newTransaction = {
+    const transacao = {
         id: geraId(),
         desc: desc,
         entrada: entrada,
         saida: saida,
     };
 
-    handleAdd(newTransaction);
+    handleAdd(transacao);
     setDesc("");
     setEntrada("");
 
