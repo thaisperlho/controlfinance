@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import * as C from "./styles";
 
-export const Form = ({handleAdd}) => {
+import Grid from '../Grid';
+
+export const Form = ({handleAdd, listadeTransacoes, setListadeTransacoes}) => {
     const [desc, setDesc] = useState("");
     const [entrada, setEntrada] = useState("");
     const [saida, setSaida] = useState(false);
@@ -29,7 +31,8 @@ export const Form = ({handleAdd}) => {
     setEntrada("");
 
 };
-    return (<>
+    return (
+    <>
         <C.Container>
             <C.InputContent>
                 <C.Label> Descrição </C.Label> <C.Input
@@ -57,7 +60,10 @@ export const Form = ({handleAdd}) => {
                     name="group1" onChange={() => setSaida(!saida)} />
                 <C.Label htmlFor="rExpenses"> Saída </C.Label> </C.RadioGroup>
             <C.Button onClick={handleSave}> Adicionar </C.Button>
-        </C.Container> </>
+        </C.Container>
+
+        <Grid itens={listadeTransacoes} setItens={setListadeTransacoes} />
+        </>
     );
 };
 
