@@ -1,13 +1,14 @@
 import React from 'react'
 import * as C from './styles'
 
-export const ResumeItem = () => {
+export const ResumeItem = ({title, Icon, value}) => {
   return (
     <C.Container>
       <C.Header>
-        <C.HeaderTitle>Entradas</C.HeaderTitle>
+        <C.HeaderTitle> {title} </C.HeaderTitle>
+        <Icon/>
       </C.Header>
-        <C.Total>R$ 1000,00</C.Total>
+        <C.Total> {value} </C.Total>
     </C.Container>
   )
 }
