@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import * as C from "./styles";
 
-export const Form = () => {
+export const Form = ({handleAdd}) => {
     const [desc, setDesc] = useState("");
     const [entrada, setEntrada] = useState("");
     const [saida, setSaida] = useState(false);
+    //Gear um id aleatorio
+    const geraId = () => Math.round(Math.random() * 1000);
+
     const handleSave = () => {
         if (!desc || !entrada) {
             alert("Informe a descrição e o valor!");
@@ -13,7 +16,19 @@ export const Form = () => {
             alert("O valor tem que ser positivo!");
             return;
         }
+    //Criar uma transação
+    const newTransaction = {
+        id: geraId(),
+        desc: desc,
+        entrada: entrada,
+        saida: saida,
     };
+
+    handleAdd(newTransaction);
+    setDesc("");
+    setEntrada("");
+
+};
     return (<>
         <C.Container>
             <C.InputContent>
