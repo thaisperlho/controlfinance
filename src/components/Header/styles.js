@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 79px;
+    height: 150px;
     text-align: left;
     background: #F4D3DD;
     `;
